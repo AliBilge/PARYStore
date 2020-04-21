@@ -3,11 +3,19 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
+//import { Provider } from 'react-redux'
+//import Product from './components/Product';
+import { Router } from 'react-router-dom';
+import { createBrowserHistory } from 'history';
 
+export const history = createBrowserHistory();
 ReactDOM.render(
-  <React.StrictMode>
+  <Router history={history}>
     <App />
-  </React.StrictMode>,
+  </Router>,
+  //<React.StrictMode>
+    
+  //</React.StrictMode>,
   document.getElementById('root')
 );
 
