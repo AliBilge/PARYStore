@@ -9,7 +9,7 @@ function App() {
     <div className="App">
       <NavButtons />
       <h1>PARY Store</h1>
-      <ListingProducts featuredProducts={[{id: '1', header: "", image: "", description: ""}, {id: '1', header: "", image: "", description: ""},{id: '1', header: "", image: "", description: ""}]} products={[]} />
+      <ListingProducts />
     </div>
   );
 }

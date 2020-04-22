@@ -1,14 +1,8 @@
 import React, {Component} from 'react';
 import { Card } from 'semantic-ui-react';
+import { IProduct } from '../store/ProductsListing/types';
 
-export interface IProductProps {
-    id: string
-    header: string,
-    image: string,
-    description: string
-}
-
-class ProductCard extends Component<IProductProps> {
+class ProductCard extends Component<IProduct> {
     render() {
         return (
             <Card
