@@ -19,12 +19,17 @@ const FormExampleUnstackableGroup = () => (
     </Form.Group>
     
     <Form.Group widths={2}>
-      <Form.Input label='Address' placeholder='Address' />
+      <Form.Input label='Email' placeholder='Email' />
       <Form.Input label='Phone' placeholder='Phone' />
     </Form.Group>
     
+    <Form.Group widths={2}>
+      <Form.Input label='Address' placeholder='Address' />
+      <Form.Input label='Username' placeholder='Username' />
+    </Form.Group>
+
     <Form.Checkbox label='I agree to the Terms and Conditions' />
-    <Button type='submit'>Sign Up</Button>
+    <Button type='submit' color ='green'>Sign Up</Button>
   </Form>
    
     
