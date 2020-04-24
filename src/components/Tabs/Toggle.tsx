@@ -1,56 +1,21 @@
-import React from 'react'
-import { Tab } from 'semantic-ui-react'
+import React from 'react';
+import { Container, Header } from 'semantic-ui-react';
+import StoreItem from '../SelectedItem';
 
-const panes = [
-  { menuItem: 'Details', render: () => 
-  <Tab.Pane>
-      
-      Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat nam pariatur rerum iste temporibus eius assumenda, blanditiis culpa, nostrum corporis aliquid ipsa fuga reiciendis quidem placeat accusamus aspernatur esse minima?
-
-    In all cases, we recommend to use the LESS package and tune it into your build system with Webpack. The LESS package also does not depend on Gulp and other cruft things. However, this package is not friendly for Webpack and requires additional configuration.
-
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat nam pariatur rerum iste temporibus eius assumenda, blanditiis culpa, nostrum corporis aliquid ipsa fuga reiciendis quidem placeat accusamus aspernatur esse minima?
-
-    In all cases, we recommend to use the LESS package and tune it into your build system with Webpack. The LESS package also does not depend on Gulp and other cruft things. However, this package is not friendly for Webpack and requires additional configuration.
-
-    In all cases, we recommend to use the LESS package and tune it into your build system with Webpack. The LESS package also does not depend on Gulp and other cruft things. However, this package is not friendly for Webpack and requires additional configuration.
-
-    In all cases, we recommend to use the LESS package and tune it into your build system with Webpack. The LESS package also does not depend on Gulp and other cruft things. However, this package is not friendly for Webpack and requires additional configuration.
-
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat nam pariatur rerum iste temporibus eius assumenda, blanditiis culpa, nostrum corporis aliquid ipsa fuga reiciendis quidem placeat accusamus aspernatur esse minima?
-
-    In all cases, we recommend to use the LESS package and tune it into your build system with Webpack. The LESS package also does not depend on Gulp and other cruft things. However, this package is not friendly for Webpack and requires additional configuration.
-
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat nam pariatur rerum iste temporibus eius assumenda, blanditiis culpa, nostrum corporis aliquid ipsa fuga reiciendis quidem placeat accusamus aspernatur esse minima?
-
-    In all cases, we recommend to use the LESS package and tune it into your build system with Webpack. The LESS package also does not depend on Gulp and other cruft things. However, this package is not friendly for Webpack and requires additional configuration.
-
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat nam pariatur rerum iste temporibus eius assumenda, blanditiis culpa, nostrum corporis aliquid ipsa fuga reiciendis quidem placeat accusamus aspernatur esse minima?
-
-    In all cases, we recommend to use the LESS package and tune it into your build system with Webpack. The LESS package also does not depend on Gulp and other cruft things. However, this package is not friendly for Webpack and requires additional configuration.
-
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat nam pariatur rerum iste temporibus eius assumenda, blanditiis culpa, nostrum corporis aliquid ipsa fuga reiciendis quidem placeat accusamus aspernatur esse minima?
-
-    In all cases, we recommend to use the LESS package and tune it into your build system with Webpack. The LESS package also does not depend on Gulp and other cruft things. However, this package is not friendly for Webpack and requires additional configuration.
-
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat nam pariatur rerum iste temporibus eius assumenda, blanditiis culpa, nostrum corporis aliquid ipsa fuga reiciendis quidem placeat accusamus aspernatur esse minima?
-
-    In all cases, we recommend to use the LESS package and tune it into your build system with Webpack. The LESS package also does not depend on Gulp and other cruft things. However, this package is not friendly for Webpack and requires additional configuration.
-
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat nam pariatur rerum iste temporibus eius assumenda, blanditiis culpa, nostrum corporis aliquid ipsa fuga reiciendis quidem placeat accusamus aspernatur esse minima?
-
-    In all cases, we recommend to use the LESS package and tune it into your build system with Webpack. The LESS package also does not depend on Gulp and other cruft things. However, this package is not friendly for Webpack and requires additional configuration.
-</Tab.Pane> },
-
-{ menuItem: 'Avalible', render: () => 
-<Tab.Pane>
-
-Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat nam pariatur rerum iste temporibus eius assumenda, blanditiis culpa, nostrum corporis aliquid ipsa fuga reiciendis quidem placeat accusamus aspernatur esse minima?
-    In all cases, we recommend to use the LESS package and tune it into your build system with Webpack. The LESS package also does not depend on Gulp and other cruft things. However, this package is not friendly for Webpack and requires additional configuration.
-    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Repellat nam pariatur rerum iste temporibus eius assumenda, blanditiis culpa, nostrum corporis aliquid ipsa fuga reiciendis quidem placeat accusamus aspernatur esse minima?
-      </Tab.Pane> },
-]
-
-const ToggleTab = () => <Tab panes={panes} />
+const ToggleTab = () => (
+  <div>
+    <Container fluid>
+      <Header as='h2'>Details of {StoreItem}</Header>
+      <p>
+        Item 1. Domestic Lorem ipsum dolor sit amet consectetur adipisicing elit. Est placeat pariatur corporis provident deleniti adipisci praesentium voluptas odio recusandae et sint repellendus sit vitae, totam non aut unde tempore! Consequuntur! dogs inherited complex behaviors, such as bite inhibition, from
+        their wolf ancestors, which would have been pack hunters with complex
+        body language. 
+      </p>
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Fugiat quisquam numquam doloremque quas quod laboriosam delectus ut maxime, est expedita? Recusandae quidem numquam expedita ab nesciunt culpa dolorum architecto.
+      </p>
+    </Container>
+  </div>
+)
 
 export default ToggleTab

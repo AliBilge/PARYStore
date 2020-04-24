@@ -7,7 +7,7 @@ export function removeItemFromInventory ( id: number ): InventoryActionTypes {
     }
 }
 
-export function addItemtoInventory ( item: Item ): InventoryActionTypes {
+export function addItemToInventory ( item: Item ): InventoryActionTypes {
     return {
         type: ADD_ITEM_TO_INVENTORY,
         payload: item 

@@ -1,12 +1,7 @@
 import { InventoryState, REMOVE_ITEM_FROM_INVENTORY, ADD_ITEM_TO_INVENTORY, InventoryActionTypes } from './types';
 
 const initialState: InventoryState = {
-    items: [
-        {
-            id: 1,
-            name: 'Product'
-        }
-    ]
+    items: []
 }
 
 export function inventoryReducer (state = initialState, action: InventoryActionTypes) {
