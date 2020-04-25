@@ -1,8 +1,6 @@
 import React from 'react';
 import { Button, Sticky } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
-//import Product from './Product';
-//import ListingProducts from './ListingProducts';
 
 const NavButtons = () => (
 

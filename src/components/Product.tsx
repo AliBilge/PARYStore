@@ -1,5 +1,5 @@
 import React from 'react';
-import ToggleTab from './Tabs/Toggle'
+import DetailTab from './Tabs/Detail'
 import SelectedItem from './SelectedItem'
 
 export default class Product extends React.Component {
@@ -8,7 +8,7 @@ export default class Product extends React.Component {
         return (
             <article>
                 <h2>Product Name: {SelectedItem}</h2>
-                <ToggleTab />   
+                <DetailTab />   
             </article>
         );
     }

@@ -1,7 +1,4 @@
-import { ReactNode } from "react";
-
 export interface Item {
-    itemTypeId: ReactNode;
     id: number,
     name: string 
 }

@@ -18,7 +18,7 @@ export class SelectedItem extends React.Component<ISelectedItemProps> {
         let { itemId } = this.props
 
         this.props.removeItemFromInventory(itemId);
-        this.props.addItemToInventory(itemId);
+        this.props.addItemToInventory(this.props.items[itemId]);
     }
 
     public render() {

@@ -2,7 +2,7 @@ import React from 'react';
 import { Container, Header } from 'semantic-ui-react';
 import StoreItem from '../SelectedItem';
 
-const ToggleTab = () => (
+const DetailTab = () => (
   <div>
     <Container fluid>
       <Header as='h2'>Details of {StoreItem}</Header>
@@ -18,4 +18,4 @@ const ToggleTab = () => (
   </div>
 )
 
-export default ToggleTab
+export default DetailTab
