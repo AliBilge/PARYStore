@@ -6,7 +6,7 @@ import ListingProducts from './components/ListingProducts';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
       <NavButtons />
       <h1>PARY Store</h1>
       <ListingProducts />

@@ -3,6 +3,7 @@ import { Grid } from 'semantic-ui-react';
 import { IProduct } from '../store/ProductsListing/types';
 import { RootState } from '../store';
 import { connect } from 'react-redux';
+import _ from 'lodash';
 import { addFeatureProduct, addProduct } from '../store/ProductsListing/actions'
 import ProductCard from './ProductCard';
 
@@ -15,33 +16,40 @@ export interface IProductsListProps {
 
 class ListingProducts extends Component<IProductsListProps> {
 
-    render() {
-        debugger
+    componentDidMount() {
+        var urlBase = "https://jsonplaceholder.typicode.com/photos" 
+        fetch(`${urlBase}?_start=0&_limit=3`)
+            .then(data => data.json())
+            .then(products => products.map(
+                ((product: IProduct) => this.props.addFeatureProduct(product))
+            ))
+        fetch(`${urlBase}?_start=3&_limit=20`)
+            .then(data => data.json())
+            .then(products => products.map(
+                ((product: IProduct) => this.props.addProduct(product))
+            ))
+
+    }
+
+    render() { 
         return (
-            <Grid container>
-                <Grid.Row columns={3}>
+            <Grid centered container>
+                <Grid.Row centered columns={4}>
                     {this.props.featuredProducts.map((item, i) => (
                         <Grid.Column key={i}>
                             <ProductCard {...item}/>
                         </Grid.Column>
                     ))}
-            </Grid.Row>
+                </Grid.Row>
         
-            <Grid.Row columns={4}>
-                    {this.props.products.map((item, i) => (
-                        <Grid.Column key={i}>
-                            <ProductCard {...item}/>
-                        </Grid.Column>
-                    ))}
-            </Grid.Row>
-        
-            <Grid.Row columns={5}>
-                    {this.props.products.map((item, i) => (
-                        <Grid.Column key={i}>
-                            <ProductCard {...item}/>
-                        </Grid.Column>
-                    ))}
-            </Grid.Row>
+                {_.chunk(this.props.products, 4).map((item, i) => 
+                    (<Grid.Row key={i} centered columns={4}>
+                        {item.map((item, i) => (
+                            <Grid.Column key={i}>
+                                <ProductCard {...item}/>
+                            </Grid.Column>))}
+                    </Grid.Row>)
+                )}
             </Grid>
         )
     }

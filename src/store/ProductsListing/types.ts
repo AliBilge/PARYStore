@@ -1,8 +1,9 @@
 export interface IProduct {
+    albumId: number
     id: number
-    header: string,
-    image: string,
-    description: string
+    title: string,
+    url: string,
+    thumbnailUrl: string
 };
 
 export interface IProductsListState {

@@ -6,9 +6,9 @@ class ProductCard extends Component<IProduct> {
     render() {
         return (
             <Card
-            image={this.props.image}
-            header={this.props.header}
-            description={this.props.description}
+            image={this.props.url}
+            header={this.props.id}
+
             />
         )
     }
