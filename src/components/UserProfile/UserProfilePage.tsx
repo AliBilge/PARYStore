@@ -1,5 +1,9 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
+import { connect } from 'react-redux';
+import { RootState } from '../../store';
+import { UserData } from '../../store/users/types'
+
 
 interface RouteParms {
   id: string;
@@ -8,7 +12,7 @@ interface RouteParms {
 export interface IUserProfilePageProps extends RouteComponentProps < RouteParms >{
 }
 
-export default class UserProfilePage extends React.Component<IUserProfilePageProps> {
+export  class UserProfilePage extends React.Component<IUserProfilePageProps> {
   public render() {
     const { match: {params: { id }}}= this.props;
     return (
@@ -18,3 +22,12 @@ export default class UserProfilePage extends React.Component<IUserProfilePagePro
     );
   }
 }
+
+
+const mapStateToProps = (state: RootState) => {
+  return {
+    UserData: state.UserData.UserData
+  }
+}
+
+export default connect(mapStateToProps)(UserProfilePage);
