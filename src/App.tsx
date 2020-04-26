@@ -2,7 +2,6 @@ import * as React from 'react';
 import { Fragment } from 'react';
 import { Switch, Route } from 'react-router-dom';
 import { SignupPage } from '. /Signup /SignupPage';
-import NotFound from './coreComponents / NotFound';
 import UserProfilePage from './UserProfile /UserProfilePage';
 
 export interface IAppProps {
@@ -17,7 +16,6 @@ export default class App extends React.Component<IAppProps> {
         <Switch>
           <Route exact path = '/ Signup' component = { SignupPage } />
           <Route exact path = '/ UserProfile/:id' component = { UserProfilePage } />
-          <Route component = { NotFound } />
         </Switch>
       </Fragment>
     );
