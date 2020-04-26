@@ -1,10 +1,11 @@
 import * as React from 'react';
-import DetailTab from './Tabs/Detail'
+import DetailTab from './Detail'
 import SelectedItem from './SelectedItem'
 import { RouteComponentProps } from 'react-router-dom';
 import { Item } from '../store/inventory/types'
 import { RootState } from '../store';
 import { connect } from 'react-redux';
+import { Segment } from 'semantic-ui-react'
 
 interface RouteParams {
     id: string;
@@ -32,11 +33,27 @@ export class Product extends React.Component<IProductProps> {
         }
 
         return (
-            <article>
+            <Segment.Group>
+            <Segment.Group raised>
+                <Segment.Group horizontal>
+                <Segment.Group>
+                    <Segment padded>
                 <h2>Product Name: </h2>
+                </Segment>
+                <Segment padded>
                 <SelectedItem {...itemOfConcern}/>
-                <DetailTab />   
-            </article>
+                </Segment>
+                </Segment.Group>
+                <Segment.Group>
+                <Segment padded compact>    
+                <DetailTab />
+                </Segment>
+
+                </Segment.Group>
+                </Segment.Group>
+                </Segment.Group>
+            </Segment.Group>
+            
         );
     }
 }

@@ -11,7 +11,7 @@ function App() {
   return (
     <Fragment>
       <NavButtons />
-      <h1>PARY Store</h1>
+      <h1 className="App-header">Welcome to PARY Store</h1>
       <Switch>
         <Route exact path='/HomePage' component={Home} />
         <Route exact path='/ListingProducts' component={ListingProducts} />
