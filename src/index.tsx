@@ -5,7 +5,7 @@ import App from './App';
 import * as serviceWorker from './serviceWorker';
 import { Provider } from 'react-redux'
 import { Router } from 'react-router-dom';
-import configureStore from './store';
+import store from './store';
 import { createBrowserHistory } from 'history';
 
 const store = configureStore;
@@ -17,9 +17,6 @@ ReactDOM.render(
     <App />
   </Provider>
   </Router>,
-  //<React.StrictMode>
-    
-  //</React.StrictMode>,
   document.getElementById('root')
 );
 

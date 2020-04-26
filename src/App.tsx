@@ -5,6 +5,7 @@ import { Switch, Route } from 'react-router-dom';
 import Product from './components/Product'
 import Home from './components/HomePage';
 import './App.css';
+import ListingProducts from './components/ListingProducts';
 
 function App() {
   return (
@@ -15,8 +16,7 @@ function App() {
         <Route exact path='/HomePage' component={Home} />
         <Route exact path='/Product' component={Product} />
       </Switch>
-     
-      </Fragment>
+     </Fragment>
   );
 }
 
