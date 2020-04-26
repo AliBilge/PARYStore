@@ -1,14 +1,15 @@
 import * as React from 'react';
-import { Button } from './signup';
+import { Button } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 
 export interface ISignupButtonProps {
     }
 
 export interface ISignupButtonState {
-    }
+    activeButton: string
+}
 
-export default class SignupButton extends React.Component<ISignupButtonProps> {
+export default class SignupButton extends React.Component<ISignupButtonProps, ISignupButtonState> {
     constructor (props: ISignupButtonProps) {
         super ( props );
 
