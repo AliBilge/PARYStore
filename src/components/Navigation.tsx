@@ -1,14 +1,31 @@
 import React from 'react';
-import {Button} from 'semantic-ui-react';
+import { Button, Sticky } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const NavButtons = () => (
-    <Button.Group fluid color='violet'>
+
+  <Sticky>
+    <Button.Group size='huge' fluid color='violet'>
       <Button>PARYStore</Button>
-      <Button>Home</Button>
+      <Button  
+      as={Link}
+      to={`/ListingProducts`}
+      content="GoToHomPage">Home
+      </Button>
+
       <Button>Contact</Button>
-      <Button>Hello</Button>
+
+      <Button
+      as={Link}
+      to={`/Product`}
+      content="GoToProduct">Hello
+      </Button>
+
       <Button>Logout</Button>
+
     </Button.Group>
+  </Sticky>
+    
   )
 
   export default NavButtons
