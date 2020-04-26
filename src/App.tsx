@@ -1,38 +1,26 @@
-import React from 'react';
-import { Button, Form } from 'semantic-ui-react'
-import './App.css';
+import * as React from 'react';
+import { Fragment } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import { SignupPage } from '. /Signup /SignupPage';
+import NotFound from './coreComponents / NotFound';
+import UserProfilePage from './UserProfile /UserProfilePage';
 
-const FormExampleUnstackableGroup = () => ( 
-  
-   
-  <Form>
-    <h1>Sign Up</h1>
+export interface IAppProps {
+}
 
-    <Form.Group unstackable widths={2}>
-      <Form.Input label='First name' placeholder='First name' />
-      <Form.Input label='Last name' placeholder='Last name' />
-    </Form.Group>
-    
-    <Form.Group widths={2}>
-      <Form.Input label='Date of Birth' placeholder='Date of Birth' />
-      <Form.Input label='Gender' placeholder='Gender' />
-    </Form.Group>
-    
-    <Form.Group widths={2}>
-      <Form.Input label='Email' placeholder='Email' />
-      <Form.Input label='Phone' placeholder='Phone' />
-    </Form.Group>
-    
-    <Form.Group widths={2}>
-      <Form.Input label='Address' placeholder='Address' />
-      <Form.Input label='Username' placeholder='Username' />
-    </Form.Group>
+export default class App extends React.Component<IAppProps> {
+  public render() {
+    return (
+      <Fragment>
+        Sign Up Page
 
-    <Form.Checkbox label='I agree to the Terms and Conditions' />
-    <Button type='submit' color ='green'>Sign Up</Button>
-  </Form>
-   
-    
- );
+        <Switch>
+          <Route exact path = '/ Signup' component = { SignupPage } />
+          <Route exact path = '/ UserProfile/:id' component = { UserProfilePage } />
+          <Route component = { NotFound } />
+        </Switch>
+      </Fragment>
+    );
+  }
+}
 
-export default FormExampleUnstackableGroup;
