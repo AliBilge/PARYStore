@@ -8,14 +8,13 @@ import { Router } from 'react-router-dom';
 import store from './store';
 import { createBrowserHistory } from 'history';
 
-const store = configureStore;
 export const history = createBrowserHistory();
 
 ReactDOM.render(
   <Router history={history}>
-  <Provider store={store()}>
-    <App />
-  </Provider>
+    <Provider store={store()}>
+      <App />
+    </Provider>
   </Router>,
   document.getElementById('root')
 );

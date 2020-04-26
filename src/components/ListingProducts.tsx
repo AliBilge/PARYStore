@@ -1,17 +1,17 @@
 import React, { Component } from 'react';
 import { Grid } from 'semantic-ui-react';
-import { IProduct } from '../store/ProductsListing/types';
+import { Item } from '../store/inventory/types';
 import { RootState } from '../store';
 import { connect } from 'react-redux';
 import _ from 'lodash';
-import { addFeatureProduct, addProduct } from '../store/ProductsListing/actions'
+import { addFeaturedItemToInventory, addItemToInventory } from '../store/inventory/actions'
 import ProductCard from './ProductCard';
 
 export interface IProductsListProps {
-    addFeatureProduct: typeof addFeatureProduct,
-    addProduct: typeof addProduct,
-    featuredProducts: IProduct[],
-    products: IProduct[]
+    addFeaturedItemToInventory: typeof addFeaturedItemToInventory,
+    addItemToInventory: typeof addItemToInventory,
+    featuredProducts: Item[],
+    products: Item[]
 }
 
 class ListingProducts extends Component<IProductsListProps> {
@@ -21,12 +21,12 @@ class ListingProducts extends Component<IProductsListProps> {
         fetch(`${urlBase}?_start=0&_limit=3`)
             .then(data => data.json())
             .then(products => products.map(
-                ((product: IProduct) => this.props.addFeatureProduct(product))
+                ((product: Item) => this.props.addFeaturedItemToInventory(product))
             ))
         fetch(`${urlBase}?_start=3&_limit=20`)
             .then(data => data.json())
             .then(products => products.map(
-                ((product: IProduct) => this.props.addProduct(product))
+                ((product: Item) => this.props.addItemToInventory(product))
             ))
 
     }
@@ -37,7 +37,7 @@ class ListingProducts extends Component<IProductsListProps> {
                 <Grid.Row centered columns={4}>
                     {this.props.featuredProducts.map((item, i) => (
                         <Grid.Column key={i}>
-                            <ProductCard {...item}/>
+                            <ProductCard {...item} />
                         </Grid.Column>
                     ))}
                 </Grid.Row>
@@ -57,12 +57,12 @@ class ListingProducts extends Component<IProductsListProps> {
 
 const mapStateToProps = (state: RootState) => {
     return {
-        featuredProducts: state.productState.featuredProducts,
-        products: state.productState.products
+        featuredProducts: state.inventory.featuredItems,
+        products: state.inventory.items
     }
 }
 
 export default connect(
     mapStateToProps,
-    {addFeatureProduct, addProduct}
+    {addFeaturedItemToInventory, addItemToInventory}
     )(ListingProducts);
