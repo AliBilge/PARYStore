@@ -15,10 +15,19 @@ export interface ILoginProps {
     
 }
 
+export interface ILoginState {
+  passwordErr: boolean;
+  usernameErr: boolean;
+}
 
-
-
-export class Login extends React.Component<ILoginProps> {
+export class Login extends React.Component<ILoginProps, ILoginState> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      passwordErr: false,
+      usernameErr: false
+    }
+  }
 
 
   submitForm = (event: any): void => {
@@ -33,12 +42,10 @@ export class Login extends React.Component<ILoginProps> {
     const passwordInput: HTMLInputElement | null = document.querySelector("[name='password']");
 
     if ((usernameInput !== null) && (passwordInput !== null)) {
-        for (let user in users) {
+        for (let user of this.props.users) {
             if (user.username === usernameInput.value) {
                 if (user.password === passwordInput.value) {
                     this.setState({
-                        username: user,
-                        submitted: true,
                         passwordErr: false,
                         usernameErr: false
                     });
@@ -100,10 +107,11 @@ export class Login extends React.Component<ILoginProps> {
       </React.Fragment>
     );
   }
-
 }
+
+
 const mapStateToProps = (state: RootState) => {
-  return {user:state.users.users}
+  return {users: state.session.users}
 }
 
 export default connect(
