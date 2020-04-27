@@ -5,20 +5,24 @@ import { Link } from 'react-router-dom';
 const NavButtons = () => (
 
   <Sticky>
-    <Button.Group size='huge' fluid color='violet'>
-      <Button>PARYStore</Button>
+    <Button.Group size='huge' fluid color='green'>
+  {/*    <Button>PARYStore</Button> */}
       <Button  
       as={Link}
       to={`/ListingProducts`}
       content="GoToHomPage">Home
       </Button>
 
-      <Button>Contact</Button>
+      <Button
+      as={Link}
+      to={`/footer`}
+      content="GoToFooter">Contact
+      </Button>
 
       <Button
       as={Link}
       to={`/Product`}
-      content="GoToProduct">Hello
+      content="GoToProduct">Product
       </Button>
 
       <Button>Logout</Button>

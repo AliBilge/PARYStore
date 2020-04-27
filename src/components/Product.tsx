@@ -26,27 +26,24 @@ export class Product extends React.Component<IProductProps> {
             itemOfConcern = products.filter(individualItem => (individualItem.id === +id))[0];
 
         return (
-            <Segment.Group>
+        
             <Segment.Group raised>
                 <Segment.Group horizontal>
+                    <Segment.Group>
+                    <Segment textAlign='center'>
+                        <h2>Product Name: {id}</h2>
+                            </Segment>
+                        <Segment padded>
+                    <SelectedItem {...itemOfConcern}/>
+                </Segment>
+            </Segment.Group>
                 <Segment.Group>
-                    <Segment padded>
-                <h2>Product Name: </h2>
-                </Segment>
-                <Segment padded>
-                <SelectedItem {...itemOfConcern}/>
-                </Segment>
-                </Segment.Group>
-                <Segment.Group>
-                <Segment padded compact>    
-                <DetailTab />
-                </Segment>
-
-                </Segment.Group>
-                </Segment.Group>
+                    <Segment padded compact>    
+                        <DetailTab />
+                    </Segment>
                 </Segment.Group>
             </Segment.Group>
-            
+        </Segment.Group>
         );
     }
 }
