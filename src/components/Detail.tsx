@@ -1,9 +1,13 @@
-import React from 'react';
+//import React from 'react';
 import { Container, Header } from 'semantic-ui-react';
 //import SelectedItem from './SelectedItem'
 //import Item from '../store/inventory/types'
+import * as React from 'react';
+//import { Image, Card } from 'semantic-ui-react';
+//import { Item } from '../store/inventory/types';
 
 const DetailTab = () => (
+
   <div>
     <Container fluid textAlign='justified'>
       <Header as='h2'>Product Detail:</Header>
@@ -20,5 +24,6 @@ const DetailTab = () => (
     </Container>
   </div>
 )
+
 
 export default DetailTab

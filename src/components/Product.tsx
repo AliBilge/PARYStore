@@ -30,25 +30,20 @@ export class Product extends React.Component<IProductProps> {
             <Segment.Group raised>
                 <Segment.Group horizontal>
                     <Segment.Group>
-                        <Segment padded>
-
-        <h2>Product Name: {id}</h2>
-                
+                    <Segment textAlign='center'>
+                        <h2>Product Name: {id}</h2>
                             </Segment>
                         <Segment padded>
                     <SelectedItem {...itemOfConcern}/>
                 </Segment>
-                </Segment.Group>
-                    <Segment.Group>
-                        <Segment padded compact>    
-                <DetailTab />
-                        </Segment>
-
-                    </Segment.Group>
+            </Segment.Group>
+                <Segment.Group>
+                    <Segment padded compact>    
+                        <DetailTab />
+                    </Segment>
                 </Segment.Group>
             </Segment.Group>
-        
-            
+        </Segment.Group>
         );
     }
 }
