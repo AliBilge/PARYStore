@@ -5,14 +5,10 @@ import { connect } from 'react-redux';
 import {User} from '../store/session/types';
 import { logInUser, logOutUser } from '../store/session/actions';
 
-
-
-
 export interface ILoginProps {
   logInUser: typeof logInUser;
   logOutUser: typeof logOutUser;
-  users:User[];
-    
+  users:User[];    
 }
 
 export interface ILoginState {
@@ -28,7 +24,6 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
       usernameErr: false
     }
   }
-
 
   submitForm = (event: any): void => {
     event.preventDefault();
@@ -56,8 +51,6 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
                     });
                     return;
                 }
-                  
-
               }
             }
             this.setState({
@@ -65,7 +58,6 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
             })
         }
     }
-
 
   public render() {
     return (
@@ -79,23 +71,23 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
                 <Form onSubmit={this.submitForm}>
                   <div>
                     <h3>Username: </h3>
-                    <Form.Input label="UserName"
+                    <Form.Input
                       placeholder="username"
                       name="username"
                       type="input"
                       error={this.state.usernameErr ? "User Name doesn't exist!" : null} 
                             
-                    />
+                    /><br/>
                   </div>
                   <div>
                   
                     <h3>Password: </h3>
-                    <Form.Input label="Password"
+                    <Form.Input
                       placeholder="password"
                       name="password"
                       type="input"
                       error={this.state.passwordErr ? "Password incorrect" : null} 
-                    />
+                    /><br/>
               
                   </div>
                   <div>
@@ -108,7 +100,6 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
     );
   }
 }
-
 
 const mapStateToProps = (state: RootState) => {
   return {users: state.session.users}
