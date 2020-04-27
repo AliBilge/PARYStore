@@ -1,18 +1,25 @@
-import React, { Component } from 'react';
-import {Button,Label,Form,Header} from 'semantic-ui-react';
- 
+import * as React from 'react';
+import { Grid, Button, Input } from 'semantic-ui-react';
+import {  Form, Field } from 'formik';
+import { RootState } from '../store/session/index';
+import { connect } from 'react-redux';
+import { logInUser } from '../store/session/actions';
+
+
 const userPwd: {[index: string]: string} = {
-    Rathi: "paryrathi",
-    Ali:   "paryali",
-    Poupak: "parypoupak",
-    Vincent:"paryvincent"
+  Rathi: "paryrathi",
+  Ali:   "paryali",
+  Poupak: "parypoupak",
+  Vincent:"paryvincent"
 }
 
-interface IProps
-{
 
+export interface ILoginProps {
+  logInUser: typeof logInUser;
+    
 }
-interface IState{
+
+export interface ILoginState {
     username:string,
     password:string,
     submitted:boolean,
@@ -20,106 +27,153 @@ interface IState{
     passwordErr:boolean
 }
 
-class Login extends Component<IProps,IState>
-{
-    constructor(props:string |boolean){
-                             super( props );
-                        
-    
-                             this.state = {
-                                      username:'',
-                                      password:'',
-                                      submitted:false,
-                                      usernameErr:false,
-                                      passwordErr:false
 
-                                         };
-                                         
-           
-                        
-                }
 
-                
 
-    handleSubmit = ( e:any ):void =>
-    {
-        e.preventDefault();
-             this.setState({
-            passwordErr: false,
-            usernameErr: false
-                   });
-               
-                 const usernameInput:HTMLInputElement |null =document.querySelector("[name='username']");
-                 const passwordInput:HTMLInputElement |null =document.querySelector("[name ='password']");
-                 if((usernameInput !=null)  && (passwordInput !=null))
-                {
-                                   
-                          for (let user in userPwd)
-                          {
-                               if(user === usernameInput.value)
-                              {
-                                  if(userPwd[user]===passwordInput.value)
-                                  {
-                                      
-                                       this.setState (
-                                        { 
-                                
-                                            username:user,
-                                            submitted :true,
-                                            usernameErr:false,
-                                            passwordErr:false });
-                                        return ;       
-                                   }
-                                
-                                else
-                                {
-                                       this.setState({
-                                        passwordErr:true
-                                        
-                                    });
-                                    
-                               return;
-                                } 
-                                
-                              }
-                              this.setState({
-                                usernameErr:true
-                           
-                         });
-                        
-                         }
-                      }
-                           
+export class Login extends React.Component<ILoginProps, ILoginState> {
+  constructor(props: ILoginProps) {
+    super(props);
+
+    this.state = {
+      username:'',
+      password:'',
+      submitted:false,
+      usernameErr:false,
+      passwordErr:false
+
+    }
   }
 
-
-  clearInput = () => this.setState({ username: '', password: '' }) 
-    render(){
-
-//const { username,password,submitted} =this.state;
-       return(
-
-              
-               <div  className="col-md-6 col-md-offset-3">
-                
-                <Form size="large" onSubmit={this.clearInput}>
-                <Header as ="h1">Login Page</Header>
-                <Form.Group  >
-                <Label htmlFor="username" color='violet' size="large" >Username:</Label>
-                <Form.Input   type="text" name="username" placeholder="username"  error={this.state.usernameErr ? "User Name doesn't exist!" : null} width={10} />
-                </Form.Group>
-                <Form.Group >
-                 <Label htmlFor="password"  color='violet' size="large" >Password :</Label>
-                 <Form.Input   type="password" name="password" placeholder="password"  error={this.state.passwordErr ? " Password incorrect" : null} width={10} />
-            
-                 </Form.Group>
-              <Button basic color='violet' content='Login' onClick={this.handleSubmit} />
-              
-              </Form>
-        
-        </div>
-        )}
+ 
+  handleSubmit = ( e:any ):void =>
+  {
+      e.preventDefault();
+           this.setState({
+          passwordErr: false,
+          usernameErr: false
+                 });
+             
+               const usernameInput:HTMLInputElement |null =document.querySelector("[name='username']");
+               const passwordInput:HTMLInputElement |null =document.querySelector("[name ='password']");
+               if((usernameInput !=null)  && (passwordInput !=null))
+              {
+                                 
+                        for (let user in userPwd)
+                        {
+                             if(user === usernameInput.value)
+                            {
+                                if(userPwd[user]===passwordInput.value)
+                                {
+                                    
+                                     this.setState (
+                                      { 
+                              
+                                          username:user,
+                                          submitted :true,
+                                          usernameErr:false,
+                                          passwordErr:false });
+                                      return ;       
+                                 }
+                              
+                              else
+                              {
+                                     this.setState({
+                                      passwordErr:true
+                                      
+                                  });
+                                  
+                             return;
+                              } 
+                              
+                            }
+                            this.setState({
+                              usernameErr:true
+                         
+                       });
+                      
+                       }
+                    }
+                         
 }
 
+  public render() {
+    return (
+      <React.Fragment>
+        <Grid centered>
+          <Grid.Row>
+            <h1>Login</h1>
+          </Grid.Row>
+          <Grid.Row >
+               
+                <Form>
+                  <div>
+                    <h3>Username: </h3>
+                    <Field
+                      placeholder="username"
+                      name="username"
+                      type="input"
+                      content="usernameContent"
+                      as={Input}
+                    />
+                  </div>
+                  <div>
+                    {this.state.usernameErr &&
+                    <h3>Invalid!</h3>
+                    }
+                    <h3>Password: </h3>
+                    <Field
+                      placeholder="password"
+                      name="password"
+                      content="passwordCtrlVCodeContent"
+                      type="input"
+                      as={Input}
+                    />
+                     {this.state.passwordErr &&
+                    <h3>Invalid!</h3>
+                    }
+                  </div>
+                  <div>
+                    <Button type="submit" color="violet" onClick={this.handleSubmit}>Login</Button>
+                  </div>
+                </Form>
+          </Grid.Row>
+        </Grid>
+      </React.Fragment>
+    );
+  }
 
-export default Login;
+}
+const mapStateToProps = (state: RootState) => {
+  return {
+    
+  }
+}
+
+export default connect(
+  mapStateToProps,
+  { logInUser }
+)(Login);
+
+
+
+
+
+ 
+
+
+
+
+                
+
+   
+
+ 
+  
+
+
+      
+                
+                
+              
+               
+

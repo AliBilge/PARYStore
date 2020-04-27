@@ -1,20 +1,24 @@
 import React from 'react';
-// import { Router, Switch } from 'react-router-dom'
-import NavButtons from './components/Navigation'
-import Product from './components/Product'
-import './App.css';
+import {Fragment } from 'react';
+ import { Route, Switch } from 'react-router-dom';
+import NavBar from './components/Navigation';
+import Product from './components/Product';
 import Login from './components/Login';
 
-function App() {
+export interface IAppProps{
+
+}
+export default class App extends React.Component<IAppProps> {
+ public render() {
   return (
-    <div className="App">
-      <NavButtons />
-      <h1>PARY Store</h1>
-      <Product />
-      <Login/>
-      
-    </div>
+      <Fragment>
+        <NavBar />
+        <Switch>
+          <Route exact path='/Login'   component={Login}/>
+          <Route exact path='/Product' component={Product}/>
+        </Switch>
+      </Fragment>
   );
+  }      
 }
 
-export default App;
