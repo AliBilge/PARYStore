@@ -1,6 +1,6 @@
 import * as React from 'react';
 import { Fragment } from 'react';
-import { Form, Button} from 'semantic-ui-react';
+import { Form, Button, Grid} from 'semantic-ui-react';
 import { RootState } from '../../store';
 import { connect } from 'react-redux';
 import { UserData } from '../../store/users/types';
@@ -91,46 +91,36 @@ export class SignupPage extends React.Component< ISignupPageProps, ISignupPageSt
               this.setState({errors});
         };
         
-
       public render() {
 
             return (
                   <Fragment>
-
-                        <Form onSubmit = { this.newUser }>
-                             
-                              <Form.Group unstackable widths={2}>
+                        <Form onSubmit = { this.newUser }>  
+                             <Grid container columns={2}>
+                                   <Grid.Column>
+                                    
                                     <Form.Input label='First name' placeholder='First name' />
-                                    <Form.Input label='Last name' placeholder='Last name' />
-                                   
-                              </Form.Group>
-
-                              <Form.Group widths={2}>
                                     <Form.Input label='Date of Birth' placeholder='Date of Birth' />
-                                    <Form.Input label='Gender' placeholder='Gender' /> */}
-                              </Form.Group>
-
-                              <Form.Group widths={2}>
-                                    <Form.Input label='Email' placeholder='Email' error= {this.state.errors}/>
-                                    <Form.Input label='Phone' placeholder='Phone' />
-                              </Form.Group>
-
-                              <Form.Group widths={2}>
-                                    <Form.Input label='Username' placeholder='Username' />
+                                    <Form.Input label='Username' placeholder='Username' /> 
                                     <Form.Input label='Password' placeholder='Password' />
-                              </Form.Group>
+                                    <Form.Checkbox label='I agree to the Terms and Conditions' /> 
+                                    <Button type='submit' class='float-left submit-button' color='green'> Sign Up </Button>   
+                                    
+                                    </Grid.Column>
 
-                              <Form.Checkbox label='I agree to the Terms and Conditions' />
-                              <Button type='submit' class='float-left submit-button' color='green'> Sign Up </Button>
-                                
-                                                                
+                                    <Grid.Column>
+                                         
+                                    <Form.Input label='Last name' placeholder='Last name' />
+                                    <Form.Input label='Gender' placeholder='Gender' />
+                                    <Form.Input label='Phone' placeholder='Phone' />
+                                    <Form.Input label='Email' placeholder='Email' error= {this.state.errors}/>
+                                         
+                                    </Grid.Column>
+                              </Grid>                                
                         </Form>
-
                   </Fragment>
-
             );
       }
-
 }
 
 const mapStateToProps = ( state: RootState ) => {
