@@ -25,7 +25,10 @@ const NavButtons = () => (
       content="GoToProduct">Product
       </Button>
 
-      <Button>Logout</Button>
+      <Button
+      as={Link}
+      to={`/Login`}
+      content="GoToLogin">Logout</Button>
 
     </Button.Group>
   </Sticky>
