@@ -1,38 +1,14 @@
 import React from 'react';
-import { Menu } from 'semantic-ui-react';
-import {Link} from 'react-router-dom';
+import { Button } from 'semantic-ui-react';
 
-export interface INavBarProps{
- }
- export interface INavBarState{
-   activeItem:string;
-}
+const NavButtons = () => (
+    <Button.Group fluid color='violet'>
+      <Button>PARYStore</Button>
+      <Button>Home</Button>
+      <Button>Contact</Button>
+      <Button>Hello</Button>
+      <Button>Logout</Button>
+    </Button.Group>
+  )
 
-
-export default class NavBar extends React.Component<INavBarProps,INavBarState>
-{
-   constructor(props:INavBarProps){
-     super(props);
-     this.state={
-       activeItem:"home"
-     }
-   }
-    public render() {
-      let{activeItem} =this.state;
-      return(
-        <Menu color="violet">
-          <Menu.Item name='PARYStore' active={activeItem==='PARYStore'} as={Link} to={'/product'}>PARYStore</Menu.Item>
-          <Menu.Item name='Home' active={activeItem==='Home'} as ={Link} to={'/'}>Home</Menu.Item>
-          <Menu.Item name='Contact' active={activeItem==='Contact'}  as ={Link} to={'/contact'}>Contact</Menu.Item>
-          <Menu.Item name='Login' active={activeItem==='Login'} as={Link} to={'/login'} >Login</Menu.Item>
-        </Menu>
-
-
-      )
-    
-     
-     
-    }
-  }
-
-
+  export default NavButtons
