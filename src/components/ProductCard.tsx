@@ -10,6 +10,7 @@ class ProductCard extends Component<Item> {
                 <Card
                     image={this.props.url}
                     header={this.props.id}
+                    description={this.props.title}
                 />
             </Link>
         )
