@@ -1,7 +1,7 @@
 import { UserActionTypes, ADD_USER, UserData } from './types';
 
 
-export function ADD_USER_TO_LIST ( usersdata: UserData ): UserActionTypes {
+export function AddUserToList ( usersdata: UserData ): UserActionTypes {
     return {
         type: ADD_USER,
         payload: usersdata
