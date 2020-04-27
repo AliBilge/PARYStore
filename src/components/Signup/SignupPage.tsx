@@ -1,7 +1,7 @@
 import * as React from 'react';
 import { Fragment } from 'react';
 import { Form, Button} from 'semantic-ui-react';
-import { RootState } from '../../store/users';
+import { RootState } from '../../store';
 import { connect } from 'react-redux';
 import { UserData } from '../../store/users/types';
 import { AddUserToList } from '../../store/users/actions';
