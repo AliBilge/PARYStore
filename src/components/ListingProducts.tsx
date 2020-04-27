@@ -33,6 +33,7 @@ class ListingProducts extends Component<IProductsListProps> {
 
     render() { 
         return (
+            
             <Grid centered container>
                 <Grid.Row centered columns={4}>
                     {this.props.featuredProducts.map((item, i) => (
