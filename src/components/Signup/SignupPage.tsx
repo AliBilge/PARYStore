@@ -4,18 +4,18 @@ import { Form, Button} from 'semantic-ui-react';
 import { RootState } from '../../store/users';
 import { connect } from 'react-redux';
 import { UserData } from '../../store/users/types';
-import { ADD_USER_TO_LIST } from '../../store/users/actions';
+import { AddUserToList } from '../../store/users/actions';
 
 
 export interface ISignupPageProps {
-      ADD_USER_TO_LIST: typeof  ADD_USER_TO_LIST,
+      AddUserToList: typeof  AddUserToList,
       userdata: UserData [],
       id: number
 }
 export interface ISignupPageState {
       errors : string
 }
-export class SignupPage extends React.Component<ISignupPageProps, ISignupPageState>
+export class SignupPage extends React.Component< ISignupPageProps, ISignupPageState >
 {
 
       constructor (props: any) {
@@ -30,14 +30,13 @@ export class SignupPage extends React.Component<ISignupPageProps, ISignupPageSta
             return newIdForUser;
       }
 
-
       newUser = ( event: any ) => {
             event.preventDefault ();
             const formField: HTMLInputElement | null = document.querySelector ('[name="userdata"]');
             let formFieldValue: string| number = '';
             if (formField !=null ) formFieldValue = formField.value;
             
-            this.props.ADD_USER_TO_LIST ({
+            this.props.AddUserToList ({
  
                   id: this.generateID(),
                   
@@ -142,5 +141,5 @@ const mapStateToProps = ( state: RootState ) => {
     
       export default connect(
       mapStateToProps,
-      { ADD_USER_TO_LIST }
+      { AddUserToList }
     )( SignupPage );

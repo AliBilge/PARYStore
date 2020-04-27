@@ -1,6 +1,6 @@
-import { UserActionTypes, UserState, ADD_USER, REMOVE_USER } from './types';
+import { UserActionTypes, UserState, ADD_USER } from './types';
 
-//input validation through github
+// input validation through github
 
 // export const firstName = (value: string) => value && value.charAt(0).toUpperCase() + value.slice(1);
 // export const lastName = (value: string) => value && value.charAt(0).toUpperCase() + value.slice(1);
@@ -66,15 +66,12 @@ export function userReducer(state = initialState, action: UserActionTypes): User
 
         case ADD_USER:
             return {
-                ...state
+                ...state,
+                usersdata: [ ...state.usersdata ]
             }
        
            
-        case REMOVE_USER:
-            return {
-                ...state
-            }
-        
+            
         default:
             return state;
         }

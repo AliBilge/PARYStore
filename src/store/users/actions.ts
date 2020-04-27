@@ -8,10 +8,4 @@ export function ADD_USER_TO_LIST ( usersdata: UserData ): UserActionTypes {
     }
 }
 
-// export function REMOVE_USER_FROM_LIST (id: number): UserActionTypes {
-//     return{
-//         type: REMOVE_USER,
-//         id: id
-//     }
-// }
 
