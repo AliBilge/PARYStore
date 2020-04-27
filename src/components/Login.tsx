@@ -34,8 +34,8 @@ export class Login extends React.Component<ILoginProps> {
 
     if ((usernameInput !== null) && (passwordInput !== null)) {
         for (let user in users) {
-            if (user.username === usernameInput.value) {
-                if (user.password === passwordInput.value) {
+            if (user === usernameInput.value) {
+                if (user=== passwordInput.value) {
                     this.setState({
                         username: user,
                         submitted: true,
@@ -80,6 +80,7 @@ export class Login extends React.Component<ILoginProps> {
                             
                     />
                   </div>
+              
                   <div>
                   
                     <h3>Password: </h3>
@@ -103,7 +104,7 @@ export class Login extends React.Component<ILoginProps> {
 
 }
 const mapStateToProps = (state: RootState) => {
-  return {user:state.users.users}
+  return {user:state.users}
 }
 
 export default connect(
