@@ -6,19 +6,23 @@ const NavButtons = () => (
 
   <Sticky>
     <Button.Group size='huge' fluid color='green'>
-      <Button>PARYStore</Button>
+  {/*    <Button>PARYStore</Button> */}
       <Button  
       as={Link}
       to={`/ListingProducts`}
       content="GoToHomPage">Home
       </Button>
 
-      <Button>Contact</Button>
+      <Button
+      as={Link}
+      to={`/footer`}
+      content="GoToFooter">Contact
+      </Button>
 
       <Button
       as={Link}
       to={`/Product`}
-      content="GoToProduct">Hello
+      content="GoToProduct">Product
       </Button>
 
       <Button>Logout</Button>
