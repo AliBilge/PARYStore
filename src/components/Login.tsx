@@ -1,100 +1,64 @@
 import * as React from 'react';
-import { Grid, Button, Input } from 'semantic-ui-react';
-import {  Form, Field } from 'formik';
-import { RootState } from '../store/session/index';
+import { Grid, Button,Form } from 'semantic-ui-react';
+import { RootState } from '../store/index';
 import { connect } from 'react-redux';
-import { logInUser } from '../store/session/actions';
+import {User} from '../store/session/types';
+import { logInUser, logOutUser } from '../store/session/actions';
 
 
-const userPwd: {[index: string]: string} = {
-  Rathi: "paryrathi",
-  Ali:   "paryali",
-  Poupak: "parypoupak",
-  Vincent:"paryvincent"
-}
 
 
 export interface ILoginProps {
   logInUser: typeof logInUser;
+  logOutUser: typeof logOutUser;
+  users:User[];
     
 }
 
-export interface ILoginState {
-    username:string,
-    password:string,
-    submitted:boolean,
-    usernameErr:boolean,
-    passwordErr:boolean
-}
 
 
 
+export class Login extends React.Component<ILoginProps> {
 
-export class Login extends React.Component<ILoginProps, ILoginState> {
-  constructor(props: ILoginProps) {
-    super(props);
 
-    this.state = {
-      username:'',
-      password:'',
-      submitted:false,
-      usernameErr:false,
-      passwordErr:false
+  submitForm = (event: any): void => {
+    event.preventDefault();
 
+    this.setState({
+        passwordErr: false,
+        usernameErr: false
+    });
+        
+    const usernameInput: HTMLInputElement | null = document.querySelector("[name='username']");
+    const passwordInput: HTMLInputElement | null = document.querySelector("[name='password']");
+
+    if ((usernameInput !== null) && (passwordInput !== null)) {
+        for (let user in users) {
+            if (user.username === usernameInput.value) {
+                if (user.password === passwordInput.value) {
+                    this.setState({
+                        username: user,
+                        submitted: true,
+                        passwordErr: false,
+                        usernameErr: false
+                    });
+                    return;
+                } else {
+                    this.setState({
+                        passwordErr: true
+                    });
+                    return;
+                }
+                  
+
+              }
+            }
+            this.setState({
+                usernameErr: true
+            })
+        }
     }
-  }
 
- 
-  handleSubmit = ( e:any ):void =>
-  {
-      e.preventDefault();
-           this.setState({
-          passwordErr: false,
-          usernameErr: false
-                 });
-             
-               const usernameInput:HTMLInputElement |null =document.querySelector("[name='username']");
-               const passwordInput:HTMLInputElement |null =document.querySelector("[name ='password']");
-               if((usernameInput !=null)  && (passwordInput !=null))
-              {
-                                 
-                        for (let user in userPwd)
-                        {
-                             if(user === usernameInput.value)
-                            {
-                                if(userPwd[user]===passwordInput.value)
-                                {
-                                    
-                                     this.setState (
-                                      { 
-                              
-                                          username:user,
-                                          submitted :true,
-                                          usernameErr:false,
-                                          passwordErr:false });
-                                      return ;       
-                                 }
-                              
-                              else
-                              {
-                                     this.setState({
-                                      passwordErr:true
-                                      
-                                  });
-                                  
-                             return;
-                              } 
-                              
-                            }
-                            this.setState({
-                              usernameErr:true
-                         
-                       });
-                      
-                       }
-                    }
-                         
-}
 
   public render() {
     return (
@@ -103,37 +67,32 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
           <Grid.Row>
             <h1>Login</h1>
           </Grid.Row>
-          <Grid.Row >
+           <Grid.Row >
                
-                <Form>
+                <Form onSubmit={this.submitForm}>
                   <div>
                     <h3>Username: </h3>
-                    <Field
+                    <Form.Input label="UserName"
                       placeholder="username"
                       name="username"
                       type="input"
-                      content="usernameContent"
-                      as={Input}
+                      error={this.state.usernameErr ? "User Name doesn't exist!" : null} 
+                            
                     />
                   </div>
                   <div>
-                    {this.state.usernameErr &&
-                    <h3>Invalid!</h3>
-                    }
+                  
                     <h3>Password: </h3>
-                    <Field
+                    <Form.Input label="Password"
                       placeholder="password"
                       name="password"
-                      content="passwordCtrlVCodeContent"
                       type="input"
-                      as={Input}
+                      error={this.state.passwordErr ? "Password incorrect" : null} 
                     />
-                     {this.state.passwordErr &&
-                    <h3>Invalid!</h3>
-                    }
+              
                   </div>
                   <div>
-                    <Button type="submit" color="violet" onClick={this.handleSubmit}>Login</Button>
+                    <Button type="submit" color="violet" >Login</Button>
                   </div>
                 </Form>
           </Grid.Row>
@@ -144,14 +103,12 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
 
 }
 const mapStateToProps = (state: RootState) => {
-  return {
-    
-  }
+  return {user:state.users.users}
 }
 
 export default connect(
   mapStateToProps,
-  { logInUser }
+  { logInUser,logOutUser }
 )(Login);
 
 

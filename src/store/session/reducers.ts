@@ -2,21 +2,29 @@ import { SessionState, SessionActionTypes, LOG_IN_USER, LOG_OUT_USER} from "./ty
 
 
 const initialState: SessionState = {
-    loggedInId: 0 
+    users: [
+        {
+        username: 'Poupak', 
+        password: 'poupak',
+        submitted:false,
+        usernameErr:false,
+        passwordErr:false
+        },
+    ]
 }
 
-export function sessionReducer(state = initialState, action: SessionActionTypes): SessionState {
+export function sessionReducer(state = initialState, action: SessionActionTypes):SessionState{
     switch (action.type) {
         case LOG_IN_USER:
             return {
                 ...state,
-                loggedInId: action.id
+                users: [...state.users, action.payload]
             }
 
         case LOG_OUT_USER:
             return {
                 ...state,
-                loggedInId: 0
+                users: [...state.users, action.payload]
             }
 
         default:
