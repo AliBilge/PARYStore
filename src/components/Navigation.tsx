@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 const NavButtons = () => (
 
   <Sticky>
-    <Button.Group size='huge' fluid color='violet'>
+    <Button.Group size='huge' fluid color='green'>
       <Button>PARYStore</Button>
       <Button  
       as={Link}

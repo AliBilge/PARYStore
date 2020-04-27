@@ -18,21 +18,24 @@ class ListingProducts extends Component<IProductsListProps> {
 
     componentDidMount() {
         var urlBase = "https://jsonplaceholder.typicode.com/photos" 
-        fetch(`${urlBase}?_start=0&_limit=3`)
-            .then(data => data.json())
-            .then(products => products.map(
-                ((product: Item) => this.props.addFeaturedItemToInventory(product))
-            ))
-        fetch(`${urlBase}?_start=3&_limit=20`)
-            .then(data => data.json())
-            .then(products => products.map(
-                ((product: Item) => this.props.addItemToInventory(product))
-            ))
+        if (this.props.featuredProducts.length === 0)
+            fetch(`${urlBase}?_start=0&_limit=3`)
+                .then(data => data.json())
+                .then(products => products.map(
+                    ((product: Item) => this.props.addFeaturedItemToInventory(product))
+                ))
 
+        if (this.props.products.length === 0)
+            fetch(`${urlBase}?_start=3&_limit=20`)
+                .then(data => data.json())
+                .then(products => products.map(
+                    ((product: Item) => this.props.addItemToInventory(product))
+                ))
     }
 
     render() { 
         return (
+            
             <Grid centered container>
                 <Grid.Row centered columns={4}>
                     {this.props.featuredProducts.map((item, i) => (
