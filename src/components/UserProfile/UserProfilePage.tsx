@@ -1,8 +1,8 @@
 import * as React from 'react';
 import { RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
-import { RootState } from '../../store';
-import { UserData } from '../../store/users/types'
+import { RootState } from '../../store/users';
+
 
 
 interface RouteParms {
@@ -26,7 +26,7 @@ export  class UserProfilePage extends React.Component<IUserProfilePageProps> {
 
 const mapStateToProps = (state: RootState) => {
   return {
-    UserData: state.UserData.UserData
+    UserData: state.users.usersdata
   }
 }
 

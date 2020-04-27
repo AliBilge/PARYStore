@@ -2,10 +2,9 @@ import { UserActionTypes, UserState, ADD_USER, REMOVE_USER } from './types';
 
 //input validation through github
 
-export const name = (value: string) => value && value.charAt(0).toUpperCase() + value.slice(1);
-
+export const firstName = (value: string) => value && value.charAt(0).toUpperCase() + value.slice(1);
+export const lastName = (value: string) => value && value.charAt(0).toUpperCase() + value.slice(1);
 export const mobile = (value: string) => value.replace(/[^\d]/g, '').slice(0, 10);
-
 export const mobileNumber = (value: string) =>
   value && !/^([6-9]\d{9})$/.test(value) ? 'Invalid mobile number, must be 10 digits' : undefined;
 
@@ -18,7 +17,7 @@ const initialState: UserState = {
         lastName: 'Gilani',
         dateOfBirth: 'string',
         gender: 'Female',
-        email: 'poupakgilani@shaw.ca',
+        email: 'poupakgilani@pary.ca',
         phone: 7808602954,
         username: 'Poupak', 
         password: 'poupak'
@@ -30,8 +29,8 @@ const initialState: UserState = {
             lastName: 'Ramakrishnan',
             dateOfBirth: 'string',
             gender: 'Female',
-            email: 'rathiramakrishnan@shaw.ca',
-            phone: 7808602954,
+            email: 'rathiramakrishnan@pary.ca',
+            phone: 5879840125,
             username: 'Rathi',
             password: 'rathi' 
         },
@@ -42,8 +41,8 @@ const initialState: UserState = {
             lastName: 'Bilge',
             dateOfBirth: 'string',
             gender: 'Male',
-            email: 'alibilge@shaw.ca',
-            phone: 7808602954,
+            email: 'alibilge@pary.ca',
+            phone: 7808602954, // sorry I couldn't find your number
             username: 'Ali',
             password: 'ali' 
         },
@@ -54,8 +53,8 @@ const initialState: UserState = {
             lastName: 'Cui',
             dateOfBirth: 'string',
             gender: 'Male',
-            email: 'vincentcui@shaw.ca',
-            phone: 7808602954,
+            email: 'vincentcui@pary.ca',
+            phone: 7808073296,
             username: 'Vincent',
             password: 'vincent' 
         }
