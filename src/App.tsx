@@ -1,16 +1,23 @@
-import React from 'react';
-// import { Router, Switch } from 'react-router-dom'
+import * as React from 'react';
+import { Fragment } from 'react'
 import NavButtons from './components/Navigation'
-import Product from './components/Product'
+import { Switch, Route } from 'react-router-dom';
+import Home from './components/HomePage';
 import './App.css';
+import ListingProducts from './components/ListingProducts';
+import Product from './components/Product';
 
 function App() {
   return (
-    <div className="App">
+    <Fragment>
       <NavButtons />
-      <h1>PARY Store</h1>
-      <Product />
-    </div>
+      <h1 className="App-header">Welcome to PARY Store</h1>
+      <Switch>
+        <Route exact path='/HomePage' component={Home} />
+        <Route exact path='/ListingProducts' component={ListingProducts} />
+        <Route exact path='/Product/:id' component={Product} />
+      </Switch>
+    </Fragment>
   );
 }
 
