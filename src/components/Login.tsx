@@ -1,25 +1,34 @@
 import * as React from 'react';
-import { Grid, Button,Form } from 'semantic-ui-react';
+import { Grid, Button,Form} from 'semantic-ui-react';
 import { RootState } from '../store/index';
 import { connect } from 'react-redux';
 import {User} from '../store/session/types';
 import { logInUser, logOutUser } from '../store/session/actions';
-
+import {SignupPage} from '../components/Signup/SignupPage';
+import {browserHistory} from 'react-router';
 
 
 
 export interface ILoginProps {
   logInUser: typeof logInUser;
   logOutUser: typeof logOutUser;
-  users:User[];
-    
+  users:User[];    
 }
 
+export interface ILoginState {
+  passwordErr: boolean;
+  usernameErr: boolean;
+}
 
-
-
-export class Login extends React.Component<ILoginProps> {
-
+export class Login extends React.Component<ILoginProps, ILoginState> {
+  constructor(props: any) {
+    super(props)
+    this.state = {
+      passwordErr: false,
+      usernameErr: false
+    }
+  }
+  
 
   submitForm = (event: any): void => {
     event.preventDefault();
@@ -31,17 +40,18 @@ export class Login extends React.Component<ILoginProps> {
         
     const usernameInput: HTMLInputElement | null = document.querySelector("[name='username']");
     const passwordInput: HTMLInputElement | null = document.querySelector("[name='password']");
-
+    
     if ((usernameInput !== null) && (passwordInput !== null)) {
-        for (let user in users) {
-            if (user === usernameInput.value) {
-                if (user=== passwordInput.value) {
+
+        for (let user of this.props.users) {
+            if (user.username === usernameInput.value) {
+                if (user.password === passwordInput.value) {
                     this.setState({
-                        username: user,
-                        submitted: true,
                         passwordErr: false,
                         usernameErr: false
                     });
+                    this.props.logInUser(this.state).then(
+                      () =>{browserHistory.push('../components/ListingProducts.tsx') } );
                     return;
                 } else {
                     this.setState({
@@ -49,16 +59,16 @@ export class Login extends React.Component<ILoginProps> {
                     });
                     return;
                 }
-                  
-
               }
             }
             this.setState({
                 usernameErr: true
             })
+            
         }
+        
     }
-
+  
 
   public render() {
     return (
@@ -72,28 +82,27 @@ export class Login extends React.Component<ILoginProps> {
                 <Form onSubmit={this.submitForm}>
                   <div>
                     <h3>Username: </h3>
-                    <Form.Input label="UserName"
+                    <Form.Input
                       placeholder="username"
                       name="username"
                       type="input"
-                      error={this.state.usernameErr ? "User Name doesn't exist!" : null} 
-                            
-                    />
+                      error={this.state.usernameErr ? "User Name doesn't exist!" : null} /><br/>
                   </div>
               
                   <div>
                   
                     <h3>Password: </h3>
-                    <Form.Input label="Password"
+                    <Form.Input
                       placeholder="password"
                       name="password"
                       type="input"
-                      error={this.state.passwordErr ? "Password incorrect" : null} 
-                    />
+                      error={this.state.passwordErr ? "Password incorrect" : null} /><br/>
               
                   </div>
                   <div>
                     <Button type="submit" color="violet" >Login</Button>
+                    <Button type="submit" color="violet" onclick={SignupPage}>Sign Up</Button>
+                     
                   </div>
                 </Form>
           </Grid.Row>
@@ -101,10 +110,12 @@ export class Login extends React.Component<ILoginProps> {
       </React.Fragment>
     );
   }
-
 }
+
 const mapStateToProps = (state: RootState) => {
-  return {user:state.users}
+
+  return {users: state.session.users}
+
 }
 
 export default connect(

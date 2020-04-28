@@ -1,26 +1,37 @@
-import React from 'react';
-import {Fragment } from 'react';
- import { Route, Switch } from 'react-router-dom';
+import * as React from 'react';
+import { Fragment } from 'react';
+import { Switch, Route } from 'react-router-dom';
+import SignupPage from './components/Signup/SignupPage';
+import UserProfilePage from './components/UserProfile/UserProfilePage';
 import Login from './components/Login';
-import {Grid} from 'semantic-ui-react';
+import NavButtons from './components/Navigation';
+import Home from './components/HomePage';
+import './App.css';
+import ListingProducts from './components/ListingProducts';
+import Product from './components/Product';
+import Footer from './components/footer';
 
-export interface IAppProps{
-
-}
-export default class App extends React.Component<IAppProps> {
- public render() {
+function App() {
   return (
-      <Fragment>
-         <Grid centered>
-               <Grid.Row >   
-                   Login Page
-               </Grid.Row> 
-            </Grid>
-        <Switch>
-         <Route exact path='/Login'   component={Login} />
-        </Switch>
-      </Fragment>
+    <Fragment>
+      <h1 className="App-header">Welcome to PARY Store</h1>
+
+      <NavButtons />
+
+      <h2 className="App-space"> </h2>
+     
+      <Switch>
+          <Route exact path = '/' component = { SignupPage } />
+          <Route exact path = '/UserProfile/:id' component = { UserProfilePage } />
+          <Route exact path='/Login'   component={Login} />
+        <Route exact path='/HomePage' component={Home} />
+        <Route exact path='/ListingProducts' component={ListingProducts} />
+        <Route exact path='/Product/:id' component={Product} />
+      </Switch>
+      <Footer />
+    </Fragment>
   );
-  }      
 }
+
+export default App;
 
