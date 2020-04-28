@@ -7,7 +7,6 @@ import { UserData } from '../../store/users/types';
 import { AddUserToList } from '../../store/users/actions';
 import { history } from '../../index';
 
-
 export interface ISignupPageProps {
       AddUserToList: typeof AddUserToList,
       userdata: UserData[]
@@ -105,9 +104,7 @@ export class SignupPage extends React.Component<ISignupPageProps>
                   <Fragment>
                         <Form onSubmit={this.newUser}>
                               <Grid container columns={2}>
-
                                     <Grid.Column>
-
                                           <Form.Input name="firstName" label='First name' placeholder='First name' />
                                           <Form.Input name="dateOfBirth" type="Date" label='Date of Birth' placeholder='Date of Birth' />
                                           <Form.Input name="username" label='Username' placeholder='Username' />
@@ -117,17 +114,12 @@ export class SignupPage extends React.Component<ISignupPageProps>
                                     </Grid.Column>
 
                                     <Grid.Column>
-
                                           <Form.Input name="lastName" label='Last name' placeholder='Last name' />
                                           <Form.Input name="gender" label='Gender' placeholder='Gender' />
                                           <Form.Input name="phone" label='Phone' placeholder='Phone' />
                                           <Form.Input name="email" type="email" label='Email' placeholder='Email' />
-
                                     </Grid.Column>
-
-
                               </Grid>
-
                         </Form>
                   </Fragment>
             );
