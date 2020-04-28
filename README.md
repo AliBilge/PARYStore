@@ -1,3 +1,19 @@
+User instruction:
+
+This is a store inventory mock up application.
+
+First page is sign up page. Here user enter personal information.
+
+Login pages follow the signup page.
+
+After login user can see store inventory
+
+Clicking any product will route to product detail page.
+
+In product detail page user can see detailed information of selected product.
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
