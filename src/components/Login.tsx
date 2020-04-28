@@ -79,7 +79,7 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
                   name="username"
                   type="input"
                   error={this.state.usernameErr ? "User Name doesn't exist!" : null}
-
+                  autoComplete="true"
                 /><br />
               </div>
               <div>
@@ -90,6 +90,7 @@ export class Login extends React.Component<ILoginProps, ILoginState> {
                   name="password"
                   type="password"
                   error={this.state.passwordErr ? "Password incorrect" : null}
+                  autoComplete="true"
                 /><br />
 
               </div>

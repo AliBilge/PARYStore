@@ -9,26 +9,27 @@ const NavButtons = () => (
       {/*    <Button>PARYStore</Button> */}
       <Button
         as={Link}
-        to={`/ListingProducts`}
-        content="GoToHomePage">Home
+        to={`/ListingProducts`}>
+        Home
       </Button>
 
       <Button
         as={Link}
-        to={`/ListingProducts`}
-        content="GoToContact">Contact
+        to={`/ListingProducts`}>
+        Contact
       </Button>
 
       <Button
         as={Link}
-        to={`/`}
-        content="GoToSignup">Signup
+        to={`/`}>
+        Signup
       </Button>
 
       <Button
         as={Link}
-        to={`/Login`}
-        content="GoToLogin">Login</Button>
+        to={`/Login`}>
+        Login
+      </Button>
 
     </Button.Group>
   </Sticky>

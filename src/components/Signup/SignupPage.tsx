@@ -108,20 +108,20 @@ export class SignupPage extends React.Component<ISignupPageProps>
 
                                     <Grid.Column>
 
-                                          <Form.Input name="firstName" label='First name' placeholder='First name' />
-                                          <Form.Input name="dateOfBirth" type="Date" label='Date of Birth' placeholder='Date of Birth' />
-                                          <Form.Input name="username" label='Username' placeholder='Username' />
-                                          <Form.Input name="password" type="password" label='Password' placeholder='Password' />
+                                          <Form.Input name="firstName" label='First name' placeholder='First name' autoComplete="true"/>
+                                          <Form.Input name="dateOfBirth" type="Date" label='Date of Birth' placeholder='Date of Birth' autoComplete="true"/>
+                                          <Form.Input name="username" label='Username' placeholder='Username' autoComplete="true"/>
+                                          <Form.Input name="password" type="password" label='Password' placeholder='Password' autoComplete="true"/>
                                           <Form.Checkbox name="agreement" label='I agree to the Terms and Conditions' />
-                                          <Button type='submit' class='float-left submit-button' color='green'> Sign Up </Button>
+                                          <Button type='submit' className='float-left submit-button' color='green'> Sign Up </Button>
                                     </Grid.Column>
 
                                     <Grid.Column>
 
-                                          <Form.Input name="lastName" label='Last name' placeholder='Last name' />
-                                          <Form.Input name="gender" label='Gender' placeholder='Gender' />
-                                          <Form.Input name="phone" label='Phone' placeholder='Phone' />
-                                          <Form.Input name="email" type="email" label='Email' placeholder='Email' />
+                                          <Form.Input name="lastName" label='Last name' placeholder='Last name' autoComplete="true"/>
+                                          <Form.Input name="gender" label='Gender' placeholder='Gender' autoComplete="true"/>
+                                          <Form.Input name="phone" label='Phone' placeholder='Phone' autoComplete="true"/>
+                                          <Form.Input name="email" type="email" label='Email' placeholder='Email' autoComplete="true"/>
 
                                     </Grid.Column>
 
