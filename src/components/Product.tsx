@@ -17,33 +17,32 @@ export interface IProductProps extends RouteComponentProps<RouteParams> {
 }
 
 export class Product extends React.Component<IProductProps> {
-    render ()
-    {   
-        const { match: { params: {id}}, featuredProducts, products } = this.props;
+    render() {
+        const { match: { params: { id } }, featuredProducts, products } = this.props;
 
         let itemOfConcern: Item = featuredProducts.filter(individualItem => (individualItem.id === +id))[0];
         if (itemOfConcern === undefined)
             itemOfConcern = products.filter(individualItem => (individualItem.id === +id))[0];
 
         return (
-        
+
             <Segment.Group raised>
                 <Segment.Group horizontal>
                     <Segment.Group>
-                    <Segment textAlign='center'>
-                        <h2>Product Name: {id}</h2>
-                            </Segment>
+                        <Segment textAlign='center'>
+                            <h2>Product Name: {id}</h2>
+                        </Segment>
                         <Segment padded>
-                    <SelectedItem {...itemOfConcern}/>
-                </Segment>
-            </Segment.Group>
-                <Segment.Group>
-                    <Segment padded compact>    
-                        <DetailTab />
-                    </Segment>
+                            <SelectedItem {...itemOfConcern} />
+                        </Segment>
+                    </Segment.Group>
+                    <Segment.Group>
+                        <Segment padded compact>
+                            <DetailTab />
+                        </Segment>
+                    </Segment.Group>
                 </Segment.Group>
             </Segment.Group>
-        </Segment.Group>
         );
     }
 }

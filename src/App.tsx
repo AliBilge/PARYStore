@@ -19,11 +19,11 @@ function App() {
       <NavButtons />
 
       <h2 className="App-space"> </h2>
-     
+
       <Switch>
-          <Route exact path = '/' component = { SignupPage } />
-          <Route exact path = '/UserProfile/:id' component = { UserProfilePage } />
-          <Route exact path='/Login'   component={Login} />
+        <Route exact path='/' component={SignupPage} />
+        <Route exact path='/UserProfile/:id' component={UserProfilePage} />
+        <Route exact path='/Login' component={Login} />
         <Route exact path='/HomePage' component={Home} />
         <Route exact path='/ListingProducts' component={ListingProducts} />
         <Route exact path='/Product/:id' component={Product} />

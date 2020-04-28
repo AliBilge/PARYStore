@@ -1,8 +1,7 @@
 import React from 'react';
 
 export default class Home extends React.Component {
-    render ()
-    {
+    render() {
         return (
             <article>
                 <h2>Home</h2>

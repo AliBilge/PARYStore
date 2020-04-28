@@ -9,15 +9,15 @@ interface RouteParms {
   id: string;
 }
 
-export interface IUserProfilePageProps extends RouteComponentProps < RouteParms >{
+export interface IUserProfilePageProps extends RouteComponentProps<RouteParms> {
 }
 
-export  class UserProfilePage extends React.Component<IUserProfilePageProps> {
+export class UserProfilePage extends React.Component<IUserProfilePageProps> {
   public render() {
-    const { match: {params: { id }}}= this.props;
+    const { match: { params: { id } } } = this.props;
     return (
       <div>
-          User Profile Page id: { id }
+        User Profile Page id: { id}
       </div>
     );
   }
