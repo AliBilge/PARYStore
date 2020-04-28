@@ -7,7 +7,6 @@ import { UserData } from '../../store/users/types';
 import { AddUserToList } from '../../store/users/actions';
 import { history } from '../../index';
 
-
 export interface ISignupPageProps {
       AddUserToList: typeof AddUserToList,
       userdata: UserData[]
@@ -105,9 +104,7 @@ export class SignupPage extends React.Component<ISignupPageProps>
                   <Fragment>
                         <Form onSubmit={this.newUser}>
                               <Grid container columns={2}>
-
                                     <Grid.Column>
-
                                           <Form.Input name="firstName" label='First name' placeholder='First name' autoComplete="true"/>
                                           <Form.Input name="dateOfBirth" type="Date" label='Date of Birth' placeholder='Date of Birth' autoComplete="true"/>
                                           <Form.Input name="username" label='Username' placeholder='Username' autoComplete="true"/>
@@ -115,19 +112,13 @@ export class SignupPage extends React.Component<ISignupPageProps>
                                           <Form.Checkbox name="agreement" label='I agree to the Terms and Conditions' />
                                           <Button type='submit' className='float-left submit-button' color='green'> Sign Up </Button>
                                     </Grid.Column>
-
                                     <Grid.Column>
-
                                           <Form.Input name="lastName" label='Last name' placeholder='Last name' autoComplete="true"/>
                                           <Form.Input name="gender" label='Gender' placeholder='Gender' autoComplete="true"/>
                                           <Form.Input name="phone" label='Phone' placeholder='Phone' autoComplete="true"/>
                                           <Form.Input name="email" type="email" label='Email' placeholder='Email' autoComplete="true"/>
-
                                     </Grid.Column>
-
-
                               </Grid>
-
                         </Form>
                   </Fragment>
             );

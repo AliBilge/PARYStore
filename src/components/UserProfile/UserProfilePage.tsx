@@ -3,8 +3,6 @@ import { RouteComponentProps } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { RootState } from '../../store';
 
-
-
 interface RouteParms {
   id: string;
 }
@@ -22,7 +20,6 @@ export class UserProfilePage extends React.Component<IUserProfilePageProps> {
     );
   }
 }
-
 
 const mapStateToProps = (state: RootState) => {
   return {

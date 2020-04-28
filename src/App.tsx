@@ -5,7 +5,6 @@ import SignupPage from './components/Signup/SignupPage';
 import UserProfilePage from './components/UserProfile/UserProfilePage';
 import Login from './components/Login';
 import NavButtons from './components/Navigation';
-import Home from './components/HomePage';
 import './App.css';
 import ListingProducts from './components/ListingProducts';
 import Product from './components/Product';
@@ -24,7 +23,6 @@ function App() {
         <Route exact path='/' component={SignupPage} />
         <Route exact path='/UserProfile/:id' component={UserProfilePage} />
         <Route exact path='/Login' component={Login} />
-        <Route exact path='/HomePage' component={Home} />
         <Route exact path='/ListingProducts' component={ListingProducts} />
         <Route exact path='/Product/:id' component={Product} />
       </Switch>
