@@ -22,7 +22,7 @@ const NavButtons = () => (
       <Button
         as={Link}
         to={`/`}
-        content="GoToSignup">Singup
+        content="GoToSignup">Signup
       </Button>
 
       <Button
