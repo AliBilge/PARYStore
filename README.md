@@ -1,3 +1,5 @@
+PARY Store
+
 User instruction:
 
 This is a store inventory mock up application.
