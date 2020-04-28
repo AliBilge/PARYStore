@@ -14,7 +14,7 @@ class SelectedItem extends React.Component<Item> {
                         <span className='date'>Item Type: {this.props.id}</span>
                     </Card.Meta>
                     {/*<Card.Description>*/}
-        {/*And item Id: {this.props.id*/}
+                    {/*And item Id: {this.props.id*/}
                     {/*</Card.Description>*/}
                 </Card.Content>
             </Card>

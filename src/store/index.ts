@@ -1,10 +1,13 @@
-import { combineReducers, createStore, applyMiddleware } from "redux"
-import { composeWithDevTools } from 'redux-devtools-extension';
+import { combineReducers, createStore, applyMiddleware } from 'redux';
+import { userReducer } from './users/reducers';
 import { inventoryReducer } from "./inventory/reducers";
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 const rootReducer = combineReducers({
-    inventory: inventoryReducer,
-});
+    users: userReducer,
+    inventory: inventoryReducer
+})
+
 
 export type RootState = ReturnType<typeof rootReducer>;
 
@@ -15,6 +18,6 @@ export default function configureStore() {
             applyMiddleware()
         )
     );
-
     return store;
 }
+

@@ -17,7 +17,7 @@ export interface IProductsListProps {
 class ListingProducts extends Component<IProductsListProps> {
 
     componentDidMount() {
-        var urlBase = "https://jsonplaceholder.typicode.com/photos" 
+        var urlBase = "https://jsonplaceholder.typicode.com/photos"
         if (this.props.featuredProducts.length === 0)
             fetch(`${urlBase}?_start=0&_limit=3`)
                 .then(data => data.json())
@@ -33,9 +33,9 @@ class ListingProducts extends Component<IProductsListProps> {
                 ))
     }
 
-    render() { 
+    render() {
         return (
-            
+
             <Grid centered container>
                 <Grid.Row centered columns={4}>
                     {this.props.featuredProducts.map((item, i) => (
@@ -44,12 +44,12 @@ class ListingProducts extends Component<IProductsListProps> {
                         </Grid.Column>
                     ))}
                 </Grid.Row>
-        
-                {_.chunk(this.props.products, 4).map((item, i) => 
+
+                {_.chunk(this.props.products, 4).map((item, i) =>
                     (<Grid.Row key={i} centered columns={4}>
                         {item.map((item, i) => (
                             <Grid.Column key={i}>
-                                <ProductCard {...item}/>
+                                <ProductCard {...item} />
                             </Grid.Column>))}
                     </Grid.Row>)
                 )}
@@ -67,5 +67,5 @@ const mapStateToProps = (state: RootState) => {
 
 export default connect(
     mapStateToProps,
-    {addFeaturedItemToInventory, addItemToInventory}
-    )(ListingProducts);
+    { addFeaturedItemToInventory, addItemToInventory }
+)(ListingProducts);
